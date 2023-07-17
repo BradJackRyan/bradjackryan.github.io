@@ -164,7 +164,7 @@ a:not([class]) {
 /* Make links red */
 a,
 a:visited {
-  color: #B31B1B;
+  color: #C70000;
   text-decoration: none;
 }
 
