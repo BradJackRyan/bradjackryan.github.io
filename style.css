@@ -510,6 +510,11 @@ input.sidenote-toggle {
   margin-bottom: -0.2rem;
 }
 
+/* Circular image */
+img {
+  border-radius: 5%;
+}
+
 /* Format the LaTeX symbol correctly (a higher up, e lower) */
 .latex span:nth-child(1) {
   text-transform: uppercase;
