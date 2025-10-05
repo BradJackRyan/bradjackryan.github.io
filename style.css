@@ -108,8 +108,6 @@ p,
 ul[class],
 ol[class],
 li,
-figure,
-figcaption,
 dl,
 dd {
   margin: 0;
@@ -132,18 +130,14 @@ body.libertinus {
 body {
   font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
   line-height: 1.8;
-
   max-width: 80ch;
   min-height: 100vh;
   overflow-x: hidden;
   margin: 0 auto;
   padding: 2rem 1.25rem;
-
   counter-reset: theorem definition sidenote-counter;
-
   color: hsl(0, 5%, 10%);
   background-color: hsl(210, 20%, 98%);
-
   text-rendering: optimizeLegibility;
 }
 
@@ -233,7 +227,7 @@ kbd {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: auto;
+  width: 100%;
   max-width: 100%;
   border-top: 2.27px solid black;
   border-bottom: 2.27px solid black;
@@ -257,6 +251,10 @@ table > tbody > tr:first-child > th {
 table > tbody > tr:last-child > td,
 table > tbody > tr:last-child > th {
   border-bottom: 1.36px solid black;
+}
+
+th[colspan]:not([colspan="1"]) {
+    text-align: center;
 }
 
 th,
@@ -445,6 +443,13 @@ dl dd {
 
 label.sidenote-toggle:not(.sidenote-number) {
   display: none;
+}
+
+blockquote {
+  border-left: 2px solid #C70000;
+  margin: 0;
+  padding: 0 0 0 20px;
+  font-style: italic;
 }
 
 /* sidenotes inside blockquotes are indented more */
@@ -652,13 +657,26 @@ h2:after {
   opacity: 1;
 }
 
+/* Qualification dates section */
+.qualifications {
+  display: grid;
+  grid-template-columns: 34px 1fr; /* fixed column for dates, flexible column for details */
+  gap: 0.4em 1em; /* row gap / column gap */
+  align-items: start; /* aligns text nicely on baseline */
+}
 
+.qualification {
+  display: contents; /* allows the spans to use the grid directly */
+}
 
+.date {
+  color: #C70000;
+  text-align: right;
+}
 
-
-
-
-
+.detail {
+  /* nothing extra needed; will wrap nicely */
+}
 
 
 
@@ -726,4 +744,10 @@ h2:after {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+/* Text to be revealed on-click */
+#myDIV {
+  width: 100%;
+  margin-top: -20px;
 }
